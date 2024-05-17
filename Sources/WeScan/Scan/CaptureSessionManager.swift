@@ -141,7 +141,7 @@ final class CaptureSessionManager: NSObject, AVCaptureVideoDataOutputSampleBuffe
 
         switch authorizationStatus {
         case .authorized:
-            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            DispatchQueue.global(qos: .background).async { [weak self] in
                 self?.captureSession.startRunning()
                 DispatchQueue.main.async {
                     guard let self = self else { return }
